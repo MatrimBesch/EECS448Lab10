@@ -26,19 +26,6 @@
             $result->free();
         }
     }
-    
-    $selectQuery = "SELECT * FROM Users WHERE user_id = '$userId';";
-    if ($result = $mysqli->query($selectQuery)) {
-        if($result->num_rows == 0){
-            $insertQuery = "insert into Users (user_id) values ('$userId');";
-            $mysqli->query($insertQuery);
-        }
-        else{
-            echo "That user already exists.";
-        }
-        // free result set 
-        $result->free();
-    }
     // close connection
     $mysqli->close();
 ?>
